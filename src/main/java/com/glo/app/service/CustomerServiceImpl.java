@@ -21,7 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer add(Customer customer) throws IllegalArgumentException {
-        if (customer.getCustomerName() == null || customer.getCustomerName() == "")
+        if (customer.getCustomerName().is empty() || customer.getCustomerName().isBlank())
             throw new IllegalArgumentException("Name field cannot be blank");
         return customerRepository.save(customer);
     }
