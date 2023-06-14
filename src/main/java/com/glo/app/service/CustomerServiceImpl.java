@@ -21,7 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer add(Customer customer) throws IllegalArgumentException {
-        if (customer.getCustomerName().is empty() || customer.getCustomerName().isBlank())
+        if (customer.getCustomerName().isEmpty() || customer.getCustomerName().isBlank())
             throw new IllegalArgumentException("Name field cannot be blank");
         return customerRepository.save(customer);
     }
@@ -31,8 +31,8 @@ public class CustomerServiceImpl implements CustomerService {
         checkCustomerExists(customerId);
         Customer customer = customerRepository.findById(customerId).get();
         List<Product> list = customer.getProductList();
-        list.addAll(products);
-        customer.setProductList(list);
+                list.addAll(products);
+                 customer.setProductList(list);
         customerRepository.save(customer);
         return customerRepository.findById(customerId).get();
     }
