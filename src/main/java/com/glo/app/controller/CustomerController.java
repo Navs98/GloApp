@@ -31,7 +31,7 @@ public class CustomerController {
     }
 
     @PutMapping("/{customerId}")
-    public Customer addProductsToCustomer(@PathVariable int customerId, @RequestBody List<Product> products) throws IllegalArgumentException {
+    public Customer addCustomerProducts(@PathVariable int customerId, @RequestBody List<Product> products) throws IllegalArgumentException {
         if (ObjectUtils.isEmpty(customerId))
             throw new IllegalArgumentException("Customer_id cannot be empty");
         if (ObjectUtils.isEmpty(products))
